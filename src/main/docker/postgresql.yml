@@ -1,0 +1,11 @@
+version: '2'
+services:
+  mafmom-postgresql:
+    image: postgres:11.2
+    # volumes:
+    #     - ~/volumes/jhipster/mafmom/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=mafmom
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

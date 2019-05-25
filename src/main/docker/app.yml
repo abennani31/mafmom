@@ -1,0 +1,16 @@
+version: '2'
+services:
+  mafmom-app:
+    image: mafmom
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://mafmom-postgresql:5432/mafmom
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    ports:
+      - 8080:8080
+  mafmom-postgresql:
+    extends:
+      file: postgresql.yml
+      service: mafmom-postgresql

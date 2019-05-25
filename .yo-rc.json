@@ -1,0 +1,46 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "mafmom",
+    "packageName": "fr.msa.agora.mdw.mafmom",
+    "packageFolder": "fr/msa/agora/mdw/mafmom",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "protractor"
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.0.1",
+    "jwtSecretKey": "NWRkNzRlZTAxYzg1OTQ4ZTBlMzRjN2QxMGE1YmQwY2FhN2E5Zjg1ZmVkNWNhY2M2NDNjYmY0MWI1OWYyZDc4MTU0NGEzM2RiNTliYzM0N2UzYjk5MGQ2ZWFiYTE5MzA2OWY0NWYzM2RlMDE3OGJiMWU4MzQyYzBhZTU1MmM2Yjc=",
+    "clientTheme": "none",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "abennani31",
+  "repository-name": "mafmom"
+}
