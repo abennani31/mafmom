@@ -1,0 +1,30 @@
+{
+    "name": "MAF",
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "publie",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contrat",
+            "otherEntityRelationshipName": "mAF",
+            "relationshipName": "contrat"
+        }
+    ],
+    "changelogDate": "20190525231403",
+    "entityTableName": "maf",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

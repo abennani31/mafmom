@@ -43,6 +43,12 @@ public class CacheConfiguration {
             createCache(cm, fr.msa.agora.mdw.mafmom.domain.User.class.getName());
             createCache(cm, fr.msa.agora.mdw.mafmom.domain.Authority.class.getName());
             createCache(cm, fr.msa.agora.mdw.mafmom.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.msa.agora.mdw.mafmom.domain.Action.class.getName());
+            createCache(cm, fr.msa.agora.mdw.mafmom.domain.Contrat.class.getName());
+            createCache(cm, fr.msa.agora.mdw.mafmom.domain.MAF.class.getName());
+            createCache(cm, fr.msa.agora.mdw.mafmom.domain.MAF.class.getName() + ".contrats");
+            createCache(cm, fr.msa.agora.mdw.mafmom.domain.MAFHistory.class.getName());
+            createCache(cm, fr.msa.agora.mdw.mafmom.domain.MAFHistory.class.getName() + ".actions");
             // jhipster-needle-ehcache-add-entry
         };
     }

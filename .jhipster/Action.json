@@ -1,0 +1,40 @@
+{
+    "name": "Action",
+    "fields": [
+        {
+            "fieldName": "typeAction",
+            "fieldType": "ActionType",
+            "fieldValues": "MODIFICATION,AJOUT,SUPPRESSION"
+        },
+        {
+            "fieldName": "libelleAction",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "contrat",
+            "otherEntityRelationshipName": "action",
+            "relationshipName": "contrat",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "mAFHistory",
+            "otherEntityName": "mAFHistory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190525231401",
+    "javadoc": "The action entity",
+    "entityTableName": "action",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,10 @@
+{
+  "mafmomApp": {
+    "ActionType": {
+      "null": "",
+      "MODIFICATION": "MODIFICATION",
+      "AJOUT": "AJOUT",
+      "SUPPRESSION": "SUPPRESSION"
+    }
+  }
+}

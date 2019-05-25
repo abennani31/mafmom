@@ -1,0 +1,30 @@
+{
+    "name": "MAFHistory",
+    "fields": [
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "action",
+            "otherEntityRelationshipName": "mAFHistory",
+            "relationshipName": "action"
+        }
+    ],
+    "changelogDate": "20190525231404",
+    "entityTableName": "maf_history",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,65 @@
+/**
+* The action entity
+*/
+entity Action {
+typeAction ActionType,
+libelleAction String
+}
+enum ActionType {
+MODIFICATION, AJOUT, SUPPRESSION
+}
+/**
+ * The Contrat entity.
+ */
+entity Contrat {
+	/**
+	* The firstname attribute.
+	*/
+	queueName String,
+
+	dateDemande Instant,
+
+	etatQueue EtatQueue
+}
+
+entity MAF {
+	version String,
+	publie Boolean
+}
+
+entity MAFHistory {
+	startDate Instant,
+	endDate Instant 
+}
+
+enum EtatQueue {
+    PREDEMANDE, A_TRAITER, EN_COURS, OK_POUR_AGORA, OK_POUR_PRODUCTION
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	MAF{contrat} to Contrat
+}
+
+// defining multiple oneToOne relationships
+relationship OneToMany {
+	MAFHistory{action} to Action
+}
+
+relationship OneToOne {
+   Action{contrat} to Contrat
+}
+
+// Set pagination options
+paginate MAFHistory, Contrat with infinite-scroll
+paginate MAF with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Contrat, MAF
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

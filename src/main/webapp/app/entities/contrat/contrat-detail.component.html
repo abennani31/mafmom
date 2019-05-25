@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contrat">
+            <h2><span jhiTranslate="mafmomApp.contrat.detail.title">Contrat</span> {{contrat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mafmomApp.contrat.queueName" [ngbTooltip]="'mafmomApp.contrat.help.queueName' | translate">Queue Name</span></dt>
+                <dd>
+                    <span>{{contrat.queueName}}</span>
+                </dd>
+                <dt><span jhiTranslate="mafmomApp.contrat.dateDemande">Date Demande</span></dt>
+                <dd>
+                    <span>{{contrat.dateDemande}}</span>
+                </dd>
+                <dt><span jhiTranslate="mafmomApp.contrat.etatQueue">Etat Queue</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'mafmomApp.EtatQueue.' + contrat.etatQueue}}">{{contrat.etatQueue}}</span>
+                </dd>
+                <dt><span jhiTranslate="mafmomApp.contrat.mAF">M AF</span></dt>
+                <dd>
+                    <div *ngIf="contrat.mAF">
+                        <a [routerLink]="['/maf', contrat.mAF?.id, 'view']">{{contrat.mAF?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contrat', contrat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
