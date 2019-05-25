@@ -29,7 +29,7 @@ entity MAF {
 
 entity MAFHistory {
 	startDate Instant,
-	endDate Instant 
+	endDate Instant,
 }
 
 enum EtatQueue {
@@ -43,6 +43,8 @@ relationship OneToMany {
 }
 
 // defining multiple oneToOne relationships
+relationship OneToOne {
+	MAFHistory{contrat} to Contrat
 relationship OneToMany {
 	MAFHistory{action} to Action
 }
