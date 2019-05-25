@@ -1,0 +1,23 @@
+{
+  "mafmomApp": {
+    "mAFHistory": {
+      "home": {
+        "title": "MAFHistories",
+        "createLabel": "Créer un nouveau MAF History",
+        "createOrEditLabel": "Créer ou éditer un MAF History"
+      },
+      "created": "Un nouveau MAF History a été créé avec l'identifiant {{ param }}",
+      "updated": "Le MAF History avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le MAF History avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le MAF History {{ id }} ?"
+      },
+      "detail": {
+        "title": "MAF History"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "action": "Action"
+    }
+  }
+}

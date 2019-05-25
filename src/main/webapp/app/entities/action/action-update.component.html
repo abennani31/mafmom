@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-action-heading" jhiTranslate="mafmomApp.action.home.createOrEditLabel">Create or edit a Action</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!action.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.action.typeAction" for="field_typeAction">Type Action</label>
+                    <select class="form-control" name="typeAction" formControlName="typeAction" id="field_typeAction">
+                        <option value="MODIFICATION">{{'mafmomApp.ActionType.MODIFICATION' | translate}}</option>
+                        <option value="AJOUT">{{'mafmomApp.ActionType.AJOUT' | translate}}</option>
+                        <option value="SUPPRESSION">{{'mafmomApp.ActionType.SUPPRESSION' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.action.libelleAction" for="field_libelleAction">Libelle Action</label>
+                    <input type="text" class="form-control" name="libelleAction" id="field_libelleAction"
+                           formControlName="libelleAction"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.action.contrat" for="field_contrat">Contrat</label>
+                    <select class="form-control" id="field_contrat" name="contrat" formControlName="contrat">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contratOption.id === editForm.get('contrat').value?.id ? editForm.get('contrat').value : contratOption" *ngFor="let contratOption of contrats; trackBy: trackContratById">{{contratOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.action.mAFHistory" for="field_mAFHistory">M AF History</label>
+                    <select class="form-control" id="field_mAFHistory" name="mAFHistory" formControlName="mAFHistory">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mAFHistoryOption.id === editForm.get('mAFHistory').value?.id ? editForm.get('mAFHistory').value : mAFHistoryOption" *ngFor="let mAFHistoryOption of mafhistories; trackBy: trackMAFHistoryById">{{mAFHistoryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

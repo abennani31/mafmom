@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-contrat-heading" jhiTranslate="mafmomApp.contrat.home.createOrEditLabel">Create or edit a Contrat</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!contrat.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.contrat.queueName" for="field_queueName" [ngbTooltip]="'mafmomApp.contrat.help.queueName' | translate">Queue Name</label>
+                    <input type="text" class="form-control" name="queueName" id="field_queueName"
+                           formControlName="queueName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.contrat.dateDemande" for="field_dateDemande">Date Demande</label>
+                    <div class="d-flex">
+                        <input id="field_dateDemande" type="datetime-local" class="form-control" name="dateDemande" formControlName="dateDemande" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.contrat.etatQueue" for="field_etatQueue">Etat Queue</label>
+                    <select class="form-control" name="etatQueue" formControlName="etatQueue" id="field_etatQueue">
+                        <option value="PREDEMANDE">{{'mafmomApp.EtatQueue.PREDEMANDE' | translate}}</option>
+                        <option value="A_TRAITER">{{'mafmomApp.EtatQueue.A_TRAITER' | translate}}</option>
+                        <option value="EN_COURS">{{'mafmomApp.EtatQueue.EN_COURS' | translate}}</option>
+                        <option value="OK_POUR_AGORA">{{'mafmomApp.EtatQueue.OK_POUR_AGORA' | translate}}</option>
+                        <option value="OK_POUR_PRODUCTION">{{'mafmomApp.EtatQueue.OK_POUR_PRODUCTION' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mafmomApp.contrat.mAF" for="field_mAF">M AF</label>
+                    <select class="form-control" id="field_mAF" name="mAF" formControlName="mAF">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mAFOption.id === editForm.get('mAF').value?.id ? editForm.get('mAF').value : mAFOption" *ngFor="let mAFOption of mafs; trackBy: trackMAFById">{{mAFOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

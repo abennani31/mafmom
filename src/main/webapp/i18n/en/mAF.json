@@ -1,0 +1,23 @@
+{
+  "mafmomApp": {
+    "mAF": {
+      "home": {
+        "title": "MAFS",
+        "createLabel": "Create a new MAF",
+        "createOrEditLabel": "Create or edit a MAF"
+      },
+      "created": "A new MAF is created with identifier {{ param }}",
+      "updated": "A MAF is updated with identifier {{ param }}",
+      "deleted": "A MAF is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete MAF {{ id }}?"
+      },
+      "detail": {
+        "title": "MAF"
+      },
+      "version": "Version",
+      "publie": "Publie",
+      "contrat": "Contrat"
+    }
+  }
+}
