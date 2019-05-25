@@ -1,4 +1,14 @@
 /**
+* The action entity
+*/
+entity Action {
+typeAction ActionType,
+libelleAction String
+}
+enum ActionType {
+MODIFICATION, AJOUT, SUPPRESSION
+}
+/**
  * The Contrat entity.
  */
 entity Contrat {
@@ -20,7 +30,6 @@ entity MAF {
 entity MAFHistory {
 	startDate Instant,
 	endDate Instant,
-	language Language
 }
 
 enum EtatQueue {
@@ -36,6 +45,12 @@ relationship OneToMany {
 // defining multiple oneToOne relationships
 relationship OneToOne {
 	MAFHistory{contrat} to Contrat
+relationship OneToMany {
+	MAFHistory{action} to Action
+}
+
+relationship OneToOne {
+   Action{contrat} to Contrat
 }
 
 // Set pagination options

@@ -1,0 +1,56 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mafmomApp.mAFHistory.home.title">MAF Histories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-maf-history" [routerLink]="['/maf-history/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="mafmomApp.mAFHistory.home.createLabel">
+            Create new MAF History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="mAFHistories">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="startDate"><span jhiTranslate="mafmomApp.mAFHistory.startDate">Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endDate"><span jhiTranslate="mafmomApp.mAFHistory.endDate">End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let mAFHistory of mAFHistories ;trackBy: trackId">
+                <td><a [routerLink]="['/maf-history', mAFHistory.id, 'view' ]">{{mAFHistory.id}}</a></td>
+                <td>{{mAFHistory.startDate | date:'medium'}}</td>
+                <td>{{mAFHistory.endDate | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/maf-history', mAFHistory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/maf-history', mAFHistory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'maf-history', { outlets: { popup: mAFHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

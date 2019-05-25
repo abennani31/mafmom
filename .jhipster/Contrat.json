@@ -1,0 +1,37 @@
+{
+    "name": "Contrat",
+    "fields": [
+        {
+            "fieldName": "queueName",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDemande",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "etatQueue",
+            "fieldType": "EtatQueue",
+            "fieldValues": "PREDEMANDE,A_TRAITER,EN_COURS,OK_POUR_AGORA,OK_POUR_PRODUCTION"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "mAF",
+            "otherEntityName": "mAF",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190525231402",
+    "javadoc": "The Contrat entity.",
+    "entityTableName": "contrat",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

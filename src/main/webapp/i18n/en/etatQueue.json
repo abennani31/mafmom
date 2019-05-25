@@ -1,0 +1,12 @@
+{
+  "mafmomApp": {
+    "EtatQueue": {
+      "null": "",
+      "PREDEMANDE": "PREDEMANDE",
+      "A_TRAITER": "A_TRAITER",
+      "EN_COURS": "EN_COURS",
+      "OK_POUR_AGORA": "OK_POUR_AGORA",
+      "OK_POUR_PRODUCTION": "OK_POUR_PRODUCTION"
+    }
+  }
+}
